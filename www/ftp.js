@@ -40,12 +40,12 @@ function Ftp() {
  *                                   Notice: For iOS, if triggered, means `init` success, but NOT means the later action, e.g. `ls`... `download` will success!
  * @param {function} errorCallback The error callback. If triggered, means init fail.
  */
-Ftp.prototype.connect = function(hostname, username, password, successCallback, errorCallback) {
+Ftp.prototype.connect = function(hostname, port, username, password, successCallback, errorCallback) {
     exec(successCallback,
          errorCallback,
          "Ftp",
          "connect",
-         [hostname, username, password]);
+         [hostname, port, username, password]);
 };
 
 /**
