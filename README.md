@@ -38,7 +38,7 @@ Example:
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    window.cordova.plugin.ftp.connect('address(ip/domainname)', 'username', 'password', function(ok) {
+    window.cordova.plugin.ftp.connect('address(ip/domainname)', 'port', 'username', 'password', function(ok) {
         console.info("ftp: connect ok=" + ok);
 
         // You can do any ftp actions from now on...
@@ -64,6 +64,7 @@ function onDeviceReady() {
 
 1. For iOS, `ftp.connect` will always succeed (even if `username` and `password` are incorrect), but it does NOT mean the later actions, e.g. `ls`... `download` will succeed too! So always check their `errorCallback`.
 2. Want to upload/download multiple files? The plugin (Android part) just inits one connection and transmits all files via that connection. If you use asychronous syntax (e.g. `foreach`) to start multiple upload/download in a short time, it may mess the transfer. Instead, you can try [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or [async](https://github.com/caolan/async) to transmit one after one.
+3. Added port support for Android.
 
 ## Thanks
 
